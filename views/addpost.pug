@@ -1,0 +1,30 @@
+doctype html
+html 
+    head(style="height:100%;")
+        title MyBlog 
+        link(rel="stylesheet", href="../css/style.css")
+
+    body(style="display:flex;align-items:center;justify-content:center;flex-direction:column;height:100%")
+        .nav
+            a.navele(href='/') Home 
+            a.navele(href='/add') Add
+
+        fieldset
+            legend 
+                
+            form( id="form", action="/send", method="post") 
+                div(class = "name")
+                    label(for="name") Titre 
+                    input( id ="name" name ="name" type="text")
+                    
+                    br
+
+                    label(for="image") Image 
+                    input( id ="image" name ="image" type="text")
+
+                    div(class="text")
+                        p description 
+                        br
+                        textarea(id="description" name="description" rows="10" cols="40") 
+
+                        button(type="submit" style="margin: 10px;") add 

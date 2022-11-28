@@ -1,0 +1,38 @@
+doctype html
+html 
+    head
+        title MyBlog 
+        link(rel="stylesheet", href="../css/style.css")
+
+    body
+
+    if loggedin==false
+        div(class="headholder") 
+            h1(class="head") Mon blog 
+            .nav
+                a.navele(href='/') Home 
+                a.navele(href='/add') Add
+            div(class="userinfo") 
+                a(href="/login") Login
+
+    else 
+        div(class="headholder") 
+            h1(class="head") Mon blog 
+            .nav
+                a.navele(href='/') Home 
+                a.navele(href='/add') Add            
+            div(class="userinfo") 
+                img(class="userimg",src=""+image, alt="")
+                p=username
+            //- a(href="/") Logout
+    
+    section(id="posts")
+    
+        each element in parsed
+            if element !=null
+                div(class="block")
+                    a(class="postheader",href="/post/"+element.id)=element.Title
+                    img(class="postimg",src=""+element.image)
+                    p(class="postcontent")=element.Post
+                    a(class="postheader",href="/delete/"+element.id) delete
+
